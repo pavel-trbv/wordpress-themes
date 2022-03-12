@@ -50,22 +50,6 @@
                     <img src="<?php bloginfo( 'template_url' ); ?>/assets/icons/social/vk.svg" alt=""/>
                 </a>
 	        <? } ?>
-<!--            <a href="#" class="mobile-menu__link">-->
-            <!--                <img src="-->
-	        <?php //bloginfo( 'template_url' ); ?><!--/assets/icons/social/facebook.svg" alt=""/>-->
-            <!--            </a>-->
-            <!--            <a href="#" class="mobile-menu__link">-->
-            <!--                <img src="-->
-	        <?php //bloginfo( 'template_url' ); ?><!--/assets/icons/social/instagram.svg" alt=""/>-->
-            <!--            </a>-->
-            <!--            <a href="#" class="mobile-menu__link">-->
-            <!--                <img src="-->
-	        <?php //bloginfo( 'template_url' ); ?><!--/assets/icons/social/youtube.svg" alt=""/>-->
-            <!--            </a>-->
-            <!--            <a href="#" class="mobile-menu__link">-->
-            <!--                <img src="-->
-	        <?php //bloginfo( 'template_url' ); ?><!--/assets/icons/social/vk.svg" alt=""/>-->
-            <!--            </a>-->
         </div>
     </div>
 
