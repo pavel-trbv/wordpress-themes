@@ -4,8 +4,7 @@ use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
 add_action( 'wp_enqueue_scripts', function () {
-//	wp_enqueue_style( 'fonts', 'https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700' );
-	wp_enqueue_style( 'fonts', 'https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&family=Poppins:wght@100;200;300;400;500;600;700&display=swap' );
+	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap', array(), null );
 	wp_enqueue_style( 'linearicons', get_template_directory_uri() . '/assets/css/linearicons.css' );
 	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/css/font-awesome.min.css' );
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.css' );
@@ -13,7 +12,7 @@ add_action( 'wp_enqueue_scripts', function () {
 	wp_enqueue_style( 'nice-select', get_template_directory_uri() . '/assets/css/nice-select.css' );
 	wp_enqueue_style( 'animate', get_template_directory_uri() . '/assets/css/animate.min.css' );
 	wp_enqueue_style( 'owl.carousel', get_template_directory_uri() . '/assets/css/owl.carousel.css' );
-	wp_enqueue_style( 'main', get_template_directory_uri() . '/assets/css/main.css' );
+	wp_enqueue_style( 'main', get_template_directory_uri() . '/assets/css/main.css', array(), null );
 
 	wp_deregister_script( 'jquery' );
 
