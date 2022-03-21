@@ -2398,7 +2398,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .video-right {
-  background: url(../img/video-bg.jpg) no-repeat center;
+  background: no-repeat center;
   background-size: cover;
   height: 350px;
   border-radius: 10px;
@@ -2460,6 +2460,10 @@ body.mobile-nav-active #mobile-nav-toggle {
   color: #fff;
 }
 
+.single-review {
+  margin-bottom: 15px;
+}
+
 .single-review .title {
   margin: 20px 0;
 }
@@ -2493,7 +2497,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .single-blog .post-tags li {
   font-size: 12px;
-  margin: 20px 0px;
+  margin: 20px 10px 20px 0px;
   display: inline-block;
   border: 1px solid #eee;
   border-radius: 20px;
@@ -2618,7 +2622,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
   padding: 8px 12px;
-  border: 0;
+  /*border: 0;*/
 }
 
 .single-footer-widget ::-moz-selection {
@@ -2703,6 +2707,10 @@ body.mobile-nav-active #mobile-nav-toggle {
   }
 }
 
+.generic-banner .generic-banner-content {
+  color: #FFFFFF !important;
+}
+
 .generic-banner .generic-banner-content h2 {
   line-height: 1.2em;
   margin-bottom: 20px;
@@ -2723,6 +2731,42 @@ body.mobile-nav-active #mobile-nav-toggle {
   .generic-banner .generic-banner-content p br {
     display: none;
   }
+}
+
+.generic-banner .generic-banner-content .banner-post-tags {
+
+}
+
+.banner-post-tags li {
+  font-size: 12px;
+  margin: 20px 10px 20px 0px;
+  display: inline-block;
+  border: 1px solid #eee;
+  border-radius: 20px;
+  padding: 4px 20px;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.banner-post-tags li a {
+  color: #FFF;
+  font-weight: 500;
+}
+
+.banner-post-tags li:hover {
+  background-color: #222222;
+  border-color: #222222;
+}
+
+.banner-post-tags li:hover a {
+  color: #fff;
+}
+
+.banner-post-date {
+  opacity: 0.7;
+  margin-bottom: 0;
 }
 
 .generic-content h1 {

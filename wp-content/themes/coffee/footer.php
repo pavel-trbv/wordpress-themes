@@ -3,24 +3,23 @@
         <div class="row">
             <div class="col-lg-5 col-md-6 col-sm-6">
                 <div class="single-footer-widget">
-                    <h6>About Us</h6>
+                    <h6>О нас</h6>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                        eiusmod tempor incididunt ut labore dolore magna aliqua.
+                        <?= carbon_get_theme_option('coffee_footer_about'); ?>
                     </p>
                     <p class="footer-text">
                         Copyright &copy;
                         <script>
                             document.write(new Date().getFullYear());
                         </script>
-                        All rights reserved
+                        Все права защищены
                     </p>
                 </div>
             </div>
             <div class="col-lg-5 col-md-6 col-sm-6">
                 <div class="single-footer-widget">
-                    <h6>Newsletter</h6>
-                    <p>Stay update with our latest</p>
+                    <h6>Подписка на новости</h6>
+                    <p>Подпишитесь, чтобы оставаться в курсе</p>
                     <div class="" id="mc_embed_signup">
                         <form
                                 target="_blank"
@@ -32,7 +31,7 @@
                             <input
                                     class="form-control"
                                     name="EMAIL"
-                                    placeholder="Enter Email"
+                                    placeholder="Email"
                                     onfocus="this.placeholder = ''"
                                     onblur="this.placeholder = 'Enter Email '"
                                     required=""
@@ -57,13 +56,13 @@
             </div>
             <div class="col-lg-2 col-md-6 col-sm-6 social-widget">
                 <div class="single-footer-widget">
-                    <h6>Follow Us</h6>
-                    <p>Let us be social</p>
+                    <h6>Соц. сети</h6>
+                    <p>Для связи с нами</p>
                     <div class="footer-social d-flex align-items-center">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-dribbble"></i></a>
-                        <a href="#"><i class="fa fa-behance"></i></a>
+                        <a href="<?= carbon_get_theme_option('coffee_footer_fb'); ?>"><i class="fa fa-facebook"></i></a>
+                        <a href="<?= carbon_get_theme_option('coffee_footer_tw'); ?>"><i class="fa fa-twitter"></i></a>
+                        <a href="<?= carbon_get_theme_option('coffee_footer_dr'); ?>"><i class="fa fa-dribbble"></i></a>
+                        <a href="<?= carbon_get_theme_option('coffee_footer_bh'); ?>"><i class="fa fa-behance"></i></a>
                     </div>
                 </div>
             </div>

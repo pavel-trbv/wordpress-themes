@@ -38,20 +38,32 @@ add_filter( 'show_admin_bar', '__return_false' );
 
 add_action( 'admin_menu', 'remove_menu_items' );
 function remove_menu_items() {
-	remove_menu_page( 'edit.php' );
+//	remove_menu_page( 'edit.php' );
 	remove_menu_page( 'upload.php' );
 	remove_menu_page( 'edit.php?post_type=page' );
 	remove_menu_page( 'edit-comments.php' );
 	remove_menu_page( 'users.php' );
 }
 
+add_theme_support( 'post-thumbnails' );
+
+add_filter('excerpt_more', function($more) {
+	return '...';
+});
+
+add_filter( 'excerpt_length', function(){
+	return 40;
+} );
+
 add_action( 'carbon_fields_register_fields', 'crb_attach_theme_options' );
 function crb_attach_theme_options() {
 	Container::make( 'theme_options', __( 'Theme Options' ) )
-	         ->add_tab( __( 'Меню' ), array(
+	         ->add_tab( __( 'Шапка' ), array(
+		         Field::make( 'image', 'coffee_logo', '' )->set_help_text( 'Логотип сайта' ),
 		         Field::make( 'text', 'coffee_menu_home', '' )->set_default_value( 'Главная' ),
 		         Field::make( 'text', 'coffee_menu_about', '' )->set_default_value( 'О нас' ),
 		         Field::make( 'text', 'coffee_menu_coffee', '' )->set_default_value( 'Наш кофе' ),
+		         Field::make( 'text', 'coffee_menu_gallery', '' )->set_default_value( 'Галерея' ),
 		         Field::make( 'text', 'coffee_menu_review', '' )->set_default_value( 'Достижения' ),
 		         Field::make( 'text', 'coffee_menu_blog', '' )->set_default_value( 'Блог' ),
 	         ) )
@@ -64,6 +76,64 @@ function crb_attach_theme_options() {
 		         Field::make( 'text', 'coffee_home_title', 'Заголовок' )->set_default_value( 'Начни свой день с чёрного кофе' ),
 		         Field::make( 'text', 'coffee_home_subtitle', 'Подзаголовок' )->set_default_value( 'Почувствуй энергию' ),
 		         Field::make( 'text', 'coffee_home_button', 'Текст на кнопке' )->set_default_value( 'Заказать' ),
+	         ) )
+	         ->add_tab( __( 'О нас' ), array(
+		         Field::make( 'text', 'coffee_about_title', 'Заголовок' )->set_default_value( 'Показываем в прямом эфире' ),
+		         Field::make( 'text', 'coffee_about_subtitle', 'Подзаголовок' )->set_default_value( 'Процесс приготовления настоящего кофе' ),
+		         Field::make( 'text', 'coffee_about_p1', 'Абзац 1' )->set_default_value( 'Мы готовы услышать все ваши пожелания' ),
+		         Field::make( 'text', 'coffee_about_p2', 'Абзац 2' )->set_default_value( 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temp or incididunt ut labore et dolore magna aliqua. Ut enim ad minim.' ),
+		         Field::make( 'text', 'coffee_about_video', 'Ссылка на видео' )->set_default_value( 'https://www.youtube.com/watch?v=ARA0AxrnHdM' ),
+		         Field::make( 'image', 'coffee_about_preview', 'Превью' )
+		              ->set_help_text( 'Картинки в разрешении 555х350' )
+	         ) )
+	         ->add_tab( __( 'Продукция' ), array(
+		         Field::make( 'text', 'coffee_coffee_title', 'Заголовок' )->set_default_value( 'Какие виды кофе мы предлагаем' ),
+		         Field::make( 'text', 'coffee_coffee_subtitle', 'Подзаголовок' )->set_default_value( 'Мы используем только экологически чистые компоненты' ),
+		         Field::make( 'complex', 'coffee_coffee_list', 'Список продукции' )
+		              ->add_fields( array(
+			              Field::make( 'text', 'coffee_product_title', 'Название' ),
+			              Field::make( 'text', 'coffee_product_desc', 'Описание' ),
+			              Field::make( 'text', 'coffee_product_price', 'Цена' ),
+		              ) ),
+	         ) )
+	         ->add_tab( __( 'Галерея' ), array(
+		         Field::make( 'text', 'coffee_gallery_title', 'Заголовок' )->set_default_value( 'Наша галерея' ),
+		         Field::make( 'text', 'coffee_gallery_subtitle', 'Подзаголовок' )->set_default_value( 'Прекрасные фотографии нашего кофе' ),
+		         Field::make( 'media_gallery', 'coffee_gallery_list', 'Фотографии' )
+		              ->set_type( array( 'image' ) )
+	         ) )
+	         ->add_tab( __( 'Достижения' ), array(
+		         Field::make( 'text', 'coffee_review_title', 'Заголовок' )->set_default_value( 'Наши достижения' ),
+		         Field::make( 'text', 'coffee_review_subtitle', 'Подзаголовок' )->set_default_value( 'Что о нас думают люди' ),
+		         Field::make( 'complex', 'coffee_review_list', 'Обзоры' )
+		              ->add_fields( array(
+			              Field::make( 'text', 'coffee_review_item_title', 'Название' ),
+			              Field::make( 'text', 'coffee_review_item_desc', 'Описание' ),
+			              Field::make( 'image', 'coffee_review_item_image', 'Логотип' ),
+			              Field::make( 'select', 'coffee_review_item_rating', 'Рейтинг' )
+			                   ->set_options( array(
+				                   '1' => 1,
+				                   '2' => 2,
+				                   '3' => 3,
+				                   '4' => 4,
+				                   '5' => 5,
+			                   ) )
+		              ) ),
+		         Field::make( 'complex', 'coffee_review_count', 'Цифры' )
+		              ->add_fields( array(
+			              Field::make( 'text', 'coffee_review_count_title', 'Название' ),
+			              Field::make( 'text', 'coffee_review_count_value', 'Значение' ),
+		              ) ),
+	         ) )
+	         ->add_tab( __( 'Блог' ), array(
+		         Field::make( 'text', 'coffee_blog_title', 'Заголовок' )->set_default_value( 'Наши статьи' ),
+		         Field::make( 'text', 'coffee_blog_subtitle', 'Подзаголовок' )->set_default_value( 'Пишем для вас' ),
+	         ) )
+	         ->add_tab( __( 'Футер' ), array(
+		         Field::make( 'text', 'coffee_footer_about', 'Описание' )->set_default_value( 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.' ),
+		         Field::make( 'text', 'coffee_footer_fb', 'Ссылка Facebook' ),
+		         Field::make( 'text', 'coffee_footer_tw', 'Ссылка Twitter' ),
+		         Field::make( 'text', 'coffee_footer_dr', 'Ссылка Dribbble' ),
+		         Field::make( 'text', 'coffee_footer_bh', 'Ссылка Behance' )
 	         ) );
-
 }

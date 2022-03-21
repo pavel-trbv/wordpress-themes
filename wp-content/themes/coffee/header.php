@@ -2,12 +2,12 @@
 <html <? language_attributes(); ?> class="no-js">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <link rel="shortcut icon" href="<? bloginfo( 'template_url' ); ?>/assets/img/fav.png"/>
+    <link rel="shortcut icon" href="<? bloginfo( 'template_url' ); ?>/assets/img/favicon.png"/>
     <meta name="author" content="codepixer"/>
     <meta name="description" content=""/>
     <meta name="keywords" content=""/>
     <meta charset="<? bloginfo( 'charset' ); ?>>"/>
-    <title>Cafe - Главная</title>
+    <title><? bloginfo('name') ?> - <?= is_home() ? 'Главная' : the_title() ?></title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,32 +36,30 @@
     <div class="container">
         <div class="row align-items-center justify-content-between d-flex">
             <div id="logo">
-                <a href="/"><img src="<? bloginfo( 'template_url' ); ?>/assets/img/logo.png" alt="" title=""/></a>
+                <a href="/">
+                    <img src="<?= wp_get_attachment_image_url( carbon_get_theme_option('coffee_logo'), 'full' ); ?>" alt="" title=""/>
+                </a>
             </div>
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
                     <li class="menu-active">
-                        <a href="#home"><?= carbon_get_theme_option( 'coffee_menu_home' ); ?></a>
+                        <a href="/#home"><?= carbon_get_theme_option( 'coffee_menu_home' ); ?></a>
                     </li>
                     <li>
-                        <a href="#about"><?= carbon_get_theme_option( 'coffee_menu_about' ); ?></a>
+                        <a href="/#about"><?= carbon_get_theme_option( 'coffee_menu_about' ); ?></a>
                     </li>
                     <li>
-                        <a href="#coffee"><?= carbon_get_theme_option( 'coffee_menu_coffee' ); ?></a>
+                        <a href="/#coffee"><?= carbon_get_theme_option( 'coffee_menu_coffee' ); ?></a>
                     </li>
                     <li>
-                        <a href="#review"><?= carbon_get_theme_option( 'coffee_menu_review' ); ?></a>
+                        <a href="/#gallery"><?= carbon_get_theme_option( 'coffee_menu_gallery' ); ?></a>
                     </li>
                     <li>
-                        <a href="#blog"><?= carbon_get_theme_option( 'coffee_menu_blog' ); ?></a>
+                        <a href="/#review"><?= carbon_get_theme_option( 'coffee_menu_review' ); ?></a>
                     </li>
-                    <!--                    <li class="menu-has-children">-->
-                    <!--                        <a href="">Pages</a>-->
-                    <!--                        <ul>-->
-                    <!--                            <li><a href="generic.html">Generic</a></li>-->
-                    <!--                            <li><a href="elements.html">Elements</a></li>-->
-                    <!--                        </ul>-->
-                    <!--                    </li>-->
+                    <li>
+                        <a href="/#blog"><?= carbon_get_theme_option( 'coffee_menu_blog' ); ?></a>
+                    </li>
                 </ul>
             </nav>
             <!-- #nav-menu-container -->
