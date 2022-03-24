@@ -7,7 +7,7 @@
     <meta name="description" content=""/>
     <meta name="keywords" content=""/>
     <meta charset="<? bloginfo( 'charset' ); ?>>"/>
-    <title><? bloginfo('name') ?> - <?= is_home() ? 'Главная' : the_title() ?></title>
+    <title>Cafe - <?= is_home() ? 'Главная' : the_title() ?></title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

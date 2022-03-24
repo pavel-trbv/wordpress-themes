@@ -2,7 +2,7 @@ version: "3.9"
     
 services:
   db:
-    image: mysql:5.7
+    image: mysql
     platform: linux/x86_64
     volumes:
       - db_data:/var/lib/mysql
@@ -10,7 +10,7 @@ services:
       - "3306:3306"
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: somewordpress
+      MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: wordpress
       MYSQL_USER: wordpress
       MYSQL_PASSWORD: wordpress
