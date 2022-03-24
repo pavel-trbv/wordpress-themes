@@ -2,7 +2,7 @@
 <html <? language_attributes(); ?> class="no-js">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <!--    <link rel="shortcut icon" href="--><? // bloginfo( 'template_url' ); ?><!--/assets/img/favicon.png"/>-->
+    <link rel="shortcut icon" href="<? bloginfo( 'template_url' ); ?>/assets/images/favicon.png"/>
     <meta name="author" content="codepixer"/>
     <meta name="description" content=""/>
     <meta name="keywords" content=""/>
