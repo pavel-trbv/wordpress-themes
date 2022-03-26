@@ -63,13 +63,84 @@ add_filter( 'excerpt_length', function () {
 add_action( 'carbon_fields_register_fields', 'crb_attach_theme_options' );
 function crb_attach_theme_options() {
 	Container::make( 'theme_options', __( 'Theme Options' ) )
+	         ->add_tab( __( 'Превью' ), array(
+		         Field::make( 'image', 'pretty_preview_image', 'Изображение' ),
+		         Field::make( 'text', 'pretty_preview_name', 'Название' )->set_default_value( 'Pretty' ),
+		         Field::make( 'text', 'pretty_preview_title', 'Заголовок' )->set_default_value( 'Салон красоты' ),
+		         Field::make( 'text', 'pretty_preview_button', 'Текст на кнопке' )->set_default_value( 'Наши услуги' ),
+	         ) )
 	         ->add_tab( __( 'Шапка' ), array(
-		         Field::make( 'image', 'coffee_logo', '' )->set_help_text( 'Логотип сайта' ),
-		         Field::make( 'text', 'coffee_menu_home', '' )->set_default_value( 'Главная' ),
-		         Field::make( 'text', 'coffee_menu_about', '' )->set_default_value( 'О нас' ),
-		         Field::make( 'text', 'coffee_menu_coffee', '' )->set_default_value( 'Наш кофе' ),
-		         Field::make( 'text', 'coffee_menu_gallery', '' )->set_default_value( 'Галерея' ),
-		         Field::make( 'text', 'coffee_menu_review', '' )->set_default_value( 'Достижения' ),
-		         Field::make( 'text', 'coffee_menu_blog', '' )->set_default_value( 'Блог' ),
+		         Field::make( 'text', 'pretty_menu_name', 'Название' )->set_default_value( 'Pretty' ),
+		         Field::make( 'text', 'pretty_menu_home', '' )->set_default_value( 'Главная' ),
+		         Field::make( 'text', 'pretty_menu_about', '' )->set_default_value( 'О нас' ),
+		         Field::make( 'text', 'pretty_menu_services', '' )->set_default_value( 'Наши услуги' ),
+		         Field::make( 'text', 'pretty_menu_work', '' )->set_default_value( 'Примеры работ' ),
+		         Field::make( 'text', 'pretty_menu_blog', '' )->set_default_value( 'Блог' ),
+		         Field::make( 'text', 'pretty_menu_contacts', '' )->set_default_value( 'Контакты' ),
+	         ) )
+	         ->add_tab( __( 'Наши услуги' ), array(
+		         Field::make( 'complex', 'pretty_services_list', 'Список продукции' )
+		              ->add_fields( array(
+			              Field::make( 'text', 'pretty_services_icon', 'Иконка' )->set_help_text( 'Название иконки с flaticon' ),
+			              Field::make( 'text', 'pretty_services_title', 'Название' ),
+			              Field::make( 'textarea', 'pretty_services_desc', 'Описание' ),
+		              ) )
+	         ) )
+	         ->add_tab( __( 'Наши мастера' ), array(
+		         Field::make( 'text', 'pretty_stuff_title', 'Заголовок' )->set_default_value( 'Наши мастера' ),
+		         Field::make( 'textarea', 'pretty_stuff_desc', 'Описание' )->set_default_value( 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.' ),
+		         Field::make( 'complex', 'pretty_stuff_list', 'Список мастеров' )
+		              ->add_fields( array(
+			              Field::make( 'image', 'pretty_stuff_photo', 'Фотография' ),
+			              Field::make( 'text', 'pretty_stuff_name', 'Имя' ),
+			              Field::make( 'text', 'pretty_stuff_position', 'Должность' ),
+			              Field::make( 'textarea', 'pretty_stuff_desc', 'Описание' ),
+		              ) )
+	         ) )
+	         ->add_tab( __( 'Акция' ), array(
+		         Field::make( 'text', 'pretty_promotion_title', 'Заголовок' )->set_default_value( 'Весенние скидки' ),
+		         Field::make( 'text', 'pretty_promotion_subtitle', 'Подзаголовок' )->set_default_value( 'Сэкономьте до 25%' ),
+		         Field::make( 'textarea', 'pretty_promotion_text', 'Текст' )->set_default_value( 'Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.' ),
+		         Field::make( 'text', 'pretty_promotion_button', 'Текст на кнопке' )->set_default_value( 'Записаться' ),
+		         Field::make( 'image', 'pretty_promotion_image', 'Картинка' ),
+	         ) )
+	         ->add_tab( __( 'Примеры работ' ), array(
+		         Field::make( 'text', 'pretty_work_title', 'Заголовок' )->set_default_value( 'Примеры работ' ),
+		         Field::make( 'textarea', 'pretty_work_subtitle', 'Подзаголовок' )->set_default_value( 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.' ),
+		         Field::make( 'complex', 'pretty_work_list', 'Список' )
+		              ->add_fields( array(
+			              Field::make( 'image', 'pretty_work_photo', 'Фотография' ),
+			              Field::make( 'text', 'pretty_work_caption', 'Подпись' ),
+		              ) )
+	         ) )
+	         ->add_tab( __( 'Партнеры' ), array(
+		         Field::make( 'complex', 'pretty_partners_list', 'Список' )
+		              ->add_fields( array(
+			              Field::make( 'image', 'pretty_partners_image', 'Фотография' ),
+		              ) )
+	         ) )
+	         ->add_tab( __( 'Цены' ), array(
+		         Field::make( 'text', 'pretty_price_title', 'Заголовок' )->set_default_value( 'Цены' ),
+		         Field::make( 'textarea', 'pretty_price_subtitle', 'Подзаголовок' )->set_default_value( 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.' ),
+		         Field::make( 'text', 'pretty_price_button', 'Текст кнопки' )->set_default_value( 'Записаться' ),
+		         Field::make( 'complex', 'pretty_price_list', 'Список' )
+		              ->add_fields( array(
+			              Field::make( 'text', 'pretty_price_name', 'Название' ),
+			              Field::make( 'text', 'pretty_price_price', 'Цена' ),
+			              Field::make( 'text', 'pretty_price_unit', 'Единица измерения' )->set_default_value('посещение'),
+			              Field::make( 'checkbox', 'pretty_price_active', 'Подсветка' )->set_option_value( 'yes' ),
+			              Field::make( 'complex', 'pretty_price_service_list', 'Список услуг' )
+			                   ->add_fields( array(
+				                   Field::make( 'text', 'pretty_price_service_name', 'Название' ),
+			                   ) )
+		              ) )
+	         ) )
+	         ->add_tab( __( 'Достижения' ), array(
+		         Field::make( 'image', 'pretty_count_image', 'Картинка' ),
+		         Field::make( 'complex', 'pretty_count_list', 'Список' )
+		              ->add_fields( array(
+			              Field::make( 'text', 'pretty_count_title', 'Название' ),
+			              Field::make( 'text', 'pretty_count_value', 'Значение' ),
+		              ) )
 	         ) );
 }

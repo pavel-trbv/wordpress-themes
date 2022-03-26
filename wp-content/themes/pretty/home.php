@@ -1,38 +1,25 @@
 <?php get_header() ?>
 
-<section class="ftco-section">
+<section class="ftco-section" id="services">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 ftco-animate">
-                <div class="media d-block text-center block-6 services">
-                    <div class="icon d-flex mb-3"><span class="flaticon-facial-treatment"></span></div>
-                    <div class="media-body">
-                        <h3 class="heading">Skin &amp; Beauty Care</h3>
-                        <p>Even the all-powerful Pointing has no control about the blind texts it is an almost
-                            unorthographic.</p>
+			<?php
+			$services = carbon_get_theme_option( 'pretty_services_list' );
+			foreach ( $services as $service ): ?>
+                <div class="col-md-4 ftco-animate">
+                    <div class="media d-block text-center block-6 services">
+                        <div class="icon d-flex mb-3">
+                            <span class="<?= $service['pretty_services_icon'] ?>"></span>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="heading"><?= $service['pretty_services_title'] ?></h3>
+                            <p>
+								<?= $service['pretty_services_desc'] ?>
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4 ftco-animate">
-                <div class="media d-block text-center block-6 services">
-                    <div class="icon d-flex mb-3"><span class="flaticon-cosmetics"></span></div>
-                    <div class="media-body">
-                        <h3 class="heading">Makeup Pro</h3>
-                        <p>Even the all-powerful Pointing has no control about the blind texts it is an almost
-                            unorthographic.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 ftco-animate">
-                <div class="media d-block text-center block-6 services">
-                    <div class="icon d-flex mb-3"><span class="flaticon-curl"></span></div>
-                    <div class="media-body">
-                        <h3 class="heading">Hair Style</h3>
-                        <p>Even the all-powerful Pointing has no control about the blind texts it is an almost
-                            unorthographic.</p>
-                    </div>
-                </div>
-            </div>
+			<? endforeach; ?>
         </div>
     </div>
 </section>
@@ -41,133 +28,84 @@
     <div class="container">
         <div class="row justify-content-center mb-5 pb-3">
             <div class="col-md-7 heading-section ftco-animate text-center">
-                <h2 class="mb-4">Our Beauty Experts</h2>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live
-                    the blind texts.</p>
+                <h2 class="mb-4"><?= carbon_get_theme_option( 'pretty_stuff_title' ); ?></h2>
+                <p>
+					<?= carbon_get_theme_option( 'pretty_stuff_desc' ); ?>
+                </p>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
-                <div class="staff">
-                    <div class="img mb-4" style="background-image: url(images/person_1.jpg);"></div>
-                    <div class="info text-center">
-                        <h3><a href="teacher-single.html">Mellisa Smith</a></h3>
-                        <span class="position">Stylist</span>
-                        <div class="text">
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                                there live the blind texts.</p>
+			<?php
+			$masters = carbon_get_theme_option( 'pretty_stuff_list' );
+			foreach ( $masters as $master ): ?>
+                <div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
+                    <div class="staff">
+                        <div class="img mb-4"
+                             style="background-image: url(<?= wp_get_attachment_image_url( $master['pretty_stuff_photo'], 'full' ) ?>);"></div>
+                        <div class="info text-center">
+                            <h3><a href="teacher-single.html"><?= $master['pretty_stuff_name'] ?></a></h3>
+                            <span class="position"><?= $master['pretty_stuff_position'] ?></span>
+                            <div class="text">
+                                <p><?= $master['pretty_stuff_desc'] ?></p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
-                <div class="staff">
-                    <div class="img mb-4" style="background-image: url(images/person_2.jpg);"></div>
-                    <div class="info text-center">
-                        <h3><a href="teacher-single.html">Marie Mush</a></h3>
-                        <span class="position">Fashionist</span>
-                        <div class="text">
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                                there live the blind texts.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
-                <div class="staff">
-                    <div class="img mb-4" style="background-image: url(images/person_3.jpg);"></div>
-                    <div class="info text-center">
-                        <h3><a href="teacher-single.html">Ana Jacobson</a></h3>
-                        <span class="position">Makeup Stylist</span>
-                        <div class="text">
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                                there live the blind texts.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
-                <div class="staff">
-                    <div class="img mb-4" style="background-image: url(images/person_4.jpg);"></div>
-                    <div class="info text-center">
-                        <h3><a href="teacher-single.html">Ivan Dorchsner</a></h3>
-                        <span class="position">Nail Specialist</span>
-                        <div class="text">
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                                there live the blind texts.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+			<? endforeach; ?>
         </div>
     </div>
 </section>
 
-<section class="ftco-section ftco-discount img" style="background-image: url(images/bg_2.jpg);">
+<section class="ftco-section ftco-discount img"
+         style="background-image: url('<?= wp_get_attachment_image_url( carbon_get_theme_option( 'pretty_promotion_image' ), 'full' ) ?>');">
     <div class="overlay"></div>
     <div class="container">
         <div class="row justify-content-end">
             <div class="col-md-5 discount ftco-animate">
-                <h3>Save up to 25% Off</h3>
-                <h2 class="mb-4">Student Discount</h2>
-                <p class="mb-4">Even the all-powerful Pointing has no control about the blind texts it is an almost
-                    unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to
-                    leave for the far World of Grammar.</p>
-                <p><a href="#" class="btn btn-white btn-outline-white px-4 py-3">Book Now</a></p>
+                <h3><?= carbon_get_theme_option( 'pretty_promotion_subtitle' ); ?></h3>
+                <h2 class="mb-4"><?= carbon_get_theme_option( 'pretty_promotion_title' ); ?></h2>
+                <p class="mb-4">
+					<?= carbon_get_theme_option( 'pretty_promotion_text' ); ?>
+                </p>
+                <p>
+                    <a href="#" class="btn btn-white btn-outline-white px-4 py-3">
+						<?= carbon_get_theme_option( 'pretty_promotion_button' ); ?>
+                    </a>
+                </p>
             </div>
         </div>
     </div>
 </section>
 
-<section class="ftco-section">
+<section class="ftco-section" id="work">
     <div class="container">
         <div class="row justify-content-center mb-5 pb-3">
             <div class="col-md-7 heading-section text-center ftco-animate">
-                <h2 class="mb-4">Our Work</h2>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live
-                    the blind texts.</p>
+                <h2 class="mb-4"><?= carbon_get_theme_option( 'pretty_work_title' ); ?></h2>
+                <p>
+					<?= carbon_get_theme_option( 'pretty_work_subtitle' ); ?>
+                </p>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4 ftco-animate">
-                <a href="#" class="work-entry">
-                    <img src="images/work-1.jpg" class="img-fluid" alt="Colorlib Template">
-                    <div class="info d-flex align-items-center">
-                        <div>
-                            <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                                <span class="icon-search"></span>
+			<?php
+			$works = carbon_get_theme_option( 'pretty_work_list' );
+			foreach ( $works as $work ): ?>
+                <div class="col-md-4 ftco-animate">
+                    <a href="#" class="work-entry">
+                        <img src="<?= wp_get_attachment_image_url( $work['pretty_work_photo'], 'full' ) ?>"
+                             class="img-fluid" alt="Пример работы">
+                        <div class="info d-flex align-items-center">
+                            <div>
+                                <div class="icon mb-4 d-flex align-items-center justify-content-center">
+                                    <span class="icon-search"></span>
+                                </div>
+                                <h3><?= $work['pretty_work_caption'] ?></h3>
                             </div>
-                            <h3>Lips Makeover</h3>
                         </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4 ftco-animate">
-                <a href="#" class="work-entry">
-                    <img src="images/work-2.jpg" class="img-fluid" alt="Colorlib Template">
-                    <div class="info d-flex align-items-center">
-                        <div>
-                            <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                                <span class="icon-search"></span>
-                            </div>
-                            <h3>Hair Style</h3>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4 ftco-animate">
-                <a href="#" class="work-entry">
-                    <img src="images/work-3.jpg" class="img-fluid" alt="Colorlib Template">
-                    <div class="info d-flex align-items-center">
-                        <div>
-                            <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                                <span class="icon-search"></span>
-                            </div>
-                            <h3>Makeup</h3>
-                        </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
+			<? endforeach; ?>
         </div>
     </div>
 </section>
@@ -177,26 +115,16 @@
         <div class="row partner justify-content-center">
             <div class="col-md-10">
                 <div class="row">
-                    <div class="col-md-3 ftco-animate">
-                        <a href="#" class="partner-entry">
-                            <img src="images/partner-1.jpg" class="img-fluid" alt="Colorlib template">
-                        </a>
-                    </div>
-                    <div class="col-md-3 ftco-animate">
-                        <a href="#" class="partner-entry">
-                            <img src="images/partner-2.jpg" class="img-fluid" alt="Colorlib template">
-                        </a>
-                    </div>
-                    <div class="col-md-3 ftco-animate">
-                        <a href="#" class="partner-entry">
-                            <img src="images/partner-3.jpg" class="img-fluid" alt="Colorlib template">
-                        </a>
-                    </div>
-                    <div class="col-md-3 ftco-animate">
-                        <a href="#" class="partner-entry">
-                            <img src="images/partner-4.jpg" class="img-fluid" alt="Colorlib template">
-                        </a>
-                    </div>
+					<?php
+					$partners = carbon_get_theme_option( 'pretty_partners_list' );
+					foreach ( $partners as $partner ): ?>
+                        <div class="col-md-3 ftco-animate">
+                            <a href="#" class="partner-entry">
+                                <img src="<?= wp_get_attachment_image_url( $partner['pretty_partners_image'], 'full' ) ?>"
+                                     class="img-fluid" alt="Наши партнеры">
+                            </a>
+                        </div>
+					<? endforeach; ?>
                 </div>
             </div>
         </div>
@@ -207,195 +135,142 @@
     <div class="container">
         <div class="row justify-content-center mb-5 pb-3">
             <div class="col-md-7 heading-section text-center ftco-animate">
-                <h2 class="mb-4">Beauty Pricing</h2>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live
-                    the blind texts.</p>
+                <h2 class="mb-4"><?= carbon_get_theme_option( 'pretty_price_title' ); ?></h2>
+                <p>
+					<?= carbon_get_theme_option( 'pretty_price_subtitle' ); ?>
+                </p>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-3 ftco-animate">
-                <div class="pricing-entry pb-5 text-center">
-                    <div>
-                        <h3 class="mb-4">Basic</h3>
-                        <p><span class="price">$24.50</span> <span class="per">/ one trip</span></p>
+			<?php
+			$prices              = carbon_get_theme_option( 'pretty_price_list' );
+			$max_services_length = 0;
+			foreach ( $prices as $price ) {
+				$length = sizeof( $price['pretty_price_service_list'] );
+				if ( $length > $max_services_length ) {
+					$max_services_length = $length;
+				}
+			}
+
+			foreach ( $prices as $price ): ?>
+                <div class="col-md-3 ftco-animate">
+                    <div class="pricing-entry <?= $price['pretty_price_active'] ? 'active' : '' ?> pb-5 text-center">
+                        <div>
+                            <h3 class="mb-4"><?= $price['pretty_price_name'] ?></h3>
+                            <p>
+                                <span class="price"><?= $price['pretty_price_price'] ?> ₽</span> <span
+                                        class="per">/ <?= $price['pretty_price_unit'] ?></span>
+                            </p>
+                        </div>
+                        <ul>
+							<? foreach ( $price['pretty_price_service_list'] as $service ): ?>
+                                <li><?= $service['pretty_price_service_name'] ?></li>
+							<? endforeach; ?>
+							<? for ( $i = 0; $i < $max_services_length - count( $price['pretty_price_service_list'] ); $i ++ ): ?>
+                                <li>&nbsp;</li>
+							<? endfor; ?>
+                        </ul>
+                        <p class="button text-center">
+                            <a href="#" class="btn btn-primary btn-outline-primary px-4 py-3">
+								<?= carbon_get_theme_option( 'pretty_price_button' ) ?>
+                            </a>
+                        </p>
                     </div>
-                    <ul>
-                        <li>Nail Cutting &amp; Styling</li>
-                        <li>Hair Trimming</li>
-                        <li>Spa Therapy</li>
-                        <li>Body Massage</li>
-                        <li>Manicure</li>
-                    </ul>
-                    <p class="button text-center"><a href="#" class="btn btn-primary btn-outline-primary px-4 py-3">Order
-                            now</a></p>
                 </div>
-            </div>
-            <div class="col-md-3 ftco-animate">
-                <div class="pricing-entry pb-5 text-center">
-                    <div>
-                        <h3 class="mb-4">Standard</h3>
-                        <p><span class="price">$34.50</span> <span class="per">/ one trip</span></p>
-                    </div>
-                    <ul>
-                        <li>Nail Cutting &amp; Styling</li>
-                        <li>Hair Trimming</li>
-                        <li>Spa Therapy</li>
-                        <li>Body Massage</li>
-                        <li>Manicure</li>
-                    </ul>
-                    <p class="button text-center"><a href="#" class="btn btn-primary btn-outline-primary px-4 py-3">Order
-                            now</a></p>
-                </div>
-            </div>
-            <div class="col-md-3 ftco-animate">
-                <div class="pricing-entry active pb-5 text-center">
-                    <div>
-                        <h3 class="mb-4">Premium</h3>
-                        <p><span class="price">$54.50</span> <span class="per">/ one trip</span></p>
-                    </div>
-                    <ul>
-                        <li>Nail Cutting &amp; Styling</li>
-                        <li>Hair Trimming</li>
-                        <li>Spa Therapy</li>
-                        <li>Body Massage</li>
-                        <li>Manicure</li>
-                    </ul>
-                    <p class="button text-center"><a href="#" class="btn btn-primary btn-outline-primary px-4 py-3">Order
-                            now</a></p>
-                </div>
-            </div>
-            <div class="col-md-3 ftco-animate">
-                <div class="pricing-entry pb-5 text-center">
-                    <div>
-                        <h3 class="mb-4">Platinum</h3>
-                        <p><span class="price">$89.50</span> <span class="per">/ one trip</span></p>
-                    </div>
-                    <ul>
-                        <li>Nail Cutting &amp; Styling</li>
-                        <li>Hair Trimming</li>
-                        <li>Spa Therapy</li>
-                        <li>Body Massage</li>
-                        <li>Manicure</li>
-                    </ul>
-                    <p class="button text-center"><a href="#" class="btn btn-primary btn-outline-primary px-4 py-3">Order
-                            now</a></p>
-                </div>
-            </div>
+			<? endforeach; ?>
         </div>
     </div>
 </section>
 
-<section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_4.jpg);">
+<section class="ftco-section ftco-counter img" id="section-counter"
+         style="background-image: url('<?= wp_get_attachment_image_url( carbon_get_theme_option( 'pretty_count_image' ), 'full' ) ?>');">
     <div class="overlay"></div>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="row">
-                    <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
-                        <div class="block-18 text-center">
-                            <div class="text">
-                                <div class="icon"><span class="flaticon-flower"></span></div>
-                                <span>Makeup Over Done</span>
-                                <strong class="number" data-number="3500">0</strong>
+					<?php
+					$counts = carbon_get_theme_option( 'pretty_count_list' );
+					foreach ( $counts as $count ): ?>
+                        <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
+                            <div class="block-18 text-center">
+                                <div class="text">
+                                    <div class="icon"><span class="flaticon-flower"></span></div>
+                                    <span><?= $count['pretty_count_title'] ?></span>
+                                    <strong class="number" data-number="<?= $count['pretty_count_value'] ?>">0</strong>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
-                        <div class="block-18 text-center">
-                            <div class="text">
-                                <div class="icon"><span class="flaticon-flower"></span></div>
-                                <span>Procedure</span>
-                                <strong class="number" data-number="1000">0</strong>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
-                        <div class="block-18 text-center">
-                            <div class="text">
-                                <div class="icon"><span class="flaticon-flower"></span></div>
-                                <span>Happy Client</span>
-                                <strong class="number" data-number="3000">0</strong>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
-                        <div class="block-18 text-center">
-                            <div class="text">
-                                <div class="icon"><span class="flaticon-flower"></span></div>
-                                <span>Skin Treatment</span>
-                                <strong class="number" data-number="900">0</strong>
-                            </div>
-                        </div>
-                    </div>
+					<? endforeach; ?>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="ftco-section">
-    <div class="container">
-        <div class="row justify-content-center mb-5 pb-3">
-            <div class="col-md-7 heading-section ftco-animate text-center">
-                <h2 class="mb-4">Recent from blog</h2>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live
-                    the blind texts.</p>
-            </div>
-        </div>
-        <div class="row d-flex">
-            <div class="col-md-4 d-flex ftco-animate">
-                <div class="blog-entry align-self-stretch">
-                    <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
-                    </a>
-                    <div class="text py-4 d-block">
-                        <div class="meta">
-                            <div><a href="#">Sept 10, 2018</a></div>
-                            <div><a href="#">Admin</a></div>
-                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                        </div>
-                        <h3 class="heading mt-2"><a href="#">Skin Care for Teen Skin</a></h3>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary
-                            regelialia.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 d-flex ftco-animate">
-                <div class="blog-entry align-self-stretch">
-                    <a href="blog-single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
-                    </a>
-                    <div class="text py-4 d-block">
-                        <div class="meta">
-                            <div><a href="#">Sept 10, 2018</a></div>
-                            <div><a href="#">Admin</a></div>
-                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                        </div>
-                        <h3 class="heading mt-2"><a href="#">Skin Care for Teen Skin</a></h3>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary
-                            regelialia.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 d-flex ftco-animate">
-                <div class="blog-entry align-self-stretch">
-                    <a href="blog-single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
-                    </a>
-                    <div class="text py-4 d-block">
-                        <div class="meta">
-                            <div><a href="#">Sept 10, 2018</a></div>
-                            <div><a href="#">Admin</a></div>
-                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                        </div>
-                        <h3 class="heading mt-2"><a href="#">Skin Care for Teen Skin</a></h3>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary
-                            regelialia.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<!--<section class="ftco-section">-->
+<!--    <div class="container">-->
+<!--        <div class="row justify-content-center mb-5 pb-3">-->
+<!--            <div class="col-md-7 heading-section ftco-animate text-center">-->
+<!--                <h2 class="mb-4">Recent from blog</h2>-->
+<!--                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live-->
+<!--                    the blind texts.</p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="row d-flex">-->
+<!--            <div class="col-md-4 d-flex ftco-animate">-->
+<!--                <div class="blog-entry align-self-stretch">-->
+<!--                    <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">-->
+<!--                    </a>-->
+<!--                    <div class="text py-4 d-block">-->
+<!--                        <div class="meta">-->
+<!--                            <div><a href="#">Sept 10, 2018</a></div>-->
+<!--                            <div><a href="#">Admin</a></div>-->
+<!--                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>-->
+<!--                        </div>-->
+<!--                        <h3 class="heading mt-2"><a href="#">Skin Care for Teen Skin</a></h3>-->
+<!--                        <p>A small river named Duden flows by their place and supplies it with the necessary-->
+<!--                            regelialia.</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-md-4 d-flex ftco-animate">-->
+<!--                <div class="blog-entry align-self-stretch">-->
+<!--                    <a href="blog-single.html" class="block-20" style="background-image: url('images/image_2.jpg');">-->
+<!--                    </a>-->
+<!--                    <div class="text py-4 d-block">-->
+<!--                        <div class="meta">-->
+<!--                            <div><a href="#">Sept 10, 2018</a></div>-->
+<!--                            <div><a href="#">Admin</a></div>-->
+<!--                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>-->
+<!--                        </div>-->
+<!--                        <h3 class="heading mt-2"><a href="#">Skin Care for Teen Skin</a></h3>-->
+<!--                        <p>A small river named Duden flows by their place and supplies it with the necessary-->
+<!--                            regelialia.</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-md-4 d-flex ftco-animate">-->
+<!--                <div class="blog-entry align-self-stretch">-->
+<!--                    <a href="blog-single.html" class="block-20" style="background-image: url('images/image_3.jpg');">-->
+<!--                    </a>-->
+<!--                    <div class="text py-4 d-block">-->
+<!--                        <div class="meta">-->
+<!--                            <div><a href="#">Sept 10, 2018</a></div>-->
+<!--                            <div><a href="#">Admin</a></div>-->
+<!--                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>-->
+<!--                        </div>-->
+<!--                        <h3 class="heading mt-2"><a href="#">Skin Care for Teen Skin</a></h3>-->
+<!--                        <p>A small river named Duden flows by their place and supplies it with the necessary-->
+<!--                            regelialia.</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
 
-<section class="ftco-section ftco-appointment">
+<section class="ftco-section ftco-appointment" id="contacts">
     <div class="overlay"></div>
     <div class="container">
         <div class="row d-md-flex align-items-center">

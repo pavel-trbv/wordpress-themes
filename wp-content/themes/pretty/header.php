@@ -18,7 +18,7 @@
 
 <? if ( is_home() ): ?>
     <div class="hero-wrap js-fullheight"
-         style="background-image: url('<? bloginfo( 'template_url' ); ?>/assets/images/bg_1.jpg');"
+         style="background-image: url('<?= wp_get_attachment_image_url( carbon_get_theme_option( 'pretty_preview_image' ), 'full' ) ?>');"
          data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
@@ -26,16 +26,18 @@
                  data-scrollax-parent="true">
                 <div class="col-md-8 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
                     <div class="icon">
-                        <a href="index.html" class="logo">
+                        <a href="/" class="logo">
                             <span class="flaticon-flower"></span>
-                            <h1>Pretty</h1>
+                            <h1><?= carbon_get_theme_option( 'pretty_preview_name' ); ?></h1>
                         </a>
                     </div>
-                    <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Beauty Salon</h1>
+                    <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
+	                    <?= carbon_get_theme_option( 'pretty_preview_title' ); ?>
+                    </h1>
 
                     <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
                         <a href="https://vimeo.com/45830194" class="btn btn-white btn-outline-white px-4 py-3">
-                            View Our Services
+	                        <?= carbon_get_theme_option( 'pretty_preview_button' ); ?>
                         </a>
                     </p>
                 </div>
@@ -46,21 +48,33 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="index.html">Pretty</a>
+        <a class="navbar-brand" href="/"><?= carbon_get_theme_option( 'pretty_menu_name' ); ?></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                 aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span>
-            Menu
+            Меню
         </button>
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
-                <li class="nav-item"><a href="work.html" class="nav-link">Work</a></li>
-                <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                <li class="nav-item active">
+                    <a href="index.html" class="nav-link"><?= carbon_get_theme_option( 'pretty_menu_home' ); ?></a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link"><?= carbon_get_theme_option( 'pretty_menu_about' ); ?></a>
+                </li>
+                <li class="nav-item">
+                    <a href="/#services" class="nav-link"><?= carbon_get_theme_option( 'pretty_menu_services' ); ?></a>
+                </li>
+                <li class="nav-item">
+                    <a href="/#work" class="nav-link"><?= carbon_get_theme_option( 'pretty_menu_work' ); ?></a>
+                </li>
+<!--                <li class="nav-item">-->
+<!--                    <a href="blog.html" class="nav-link">--><?//= carbon_get_theme_option( 'pretty_menu_blog' ); ?><!--</a>-->
+<!--                </li>-->
+                <li class="nav-item">
+                    <a href="/#contacts" class="nav-link"><?= carbon_get_theme_option( 'pretty_menu_contacts' ); ?></a>
+                </li>
             </ul>
         </div>
     </div>
