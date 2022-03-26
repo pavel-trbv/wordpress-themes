@@ -43,7 +43,7 @@ add_filter( 'show_admin_bar', '__return_false' );
 
 add_action( 'admin_menu', 'remove_menu_items' );
 function remove_menu_items() {
-//	remove_menu_page( 'edit.php' );
+	remove_menu_page( 'edit.php' );
 //	remove_menu_page( 'upload.php' );
 //	remove_menu_page( 'edit.php?post_type=page' );
 	remove_menu_page( 'edit-comments.php' );
