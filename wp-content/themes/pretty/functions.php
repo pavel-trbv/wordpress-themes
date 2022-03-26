@@ -127,7 +127,7 @@ function crb_attach_theme_options() {
 		              ->add_fields( array(
 			              Field::make( 'text', 'pretty_price_name', 'Название' ),
 			              Field::make( 'text', 'pretty_price_price', 'Цена' ),
-			              Field::make( 'text', 'pretty_price_unit', 'Единица измерения' )->set_default_value('посещение'),
+			              Field::make( 'text', 'pretty_price_unit', 'Единица измерения' )->set_default_value( 'посещение' ),
 			              Field::make( 'checkbox', 'pretty_price_active', 'Подсветка' )->set_option_value( 'yes' ),
 			              Field::make( 'complex', 'pretty_price_service_list', 'Список услуг' )
 			                   ->add_fields( array(
@@ -142,5 +142,20 @@ function crb_attach_theme_options() {
 			              Field::make( 'text', 'pretty_count_title', 'Название' ),
 			              Field::make( 'text', 'pretty_count_value', 'Значение' ),
 		              ) )
+	         ) )
+	         ->add_tab( __( 'Контакты' ), array(
+		         Field::make( 'text', 'pretty_contacts_address', 'Адрес' ),
+		         Field::make( 'text', 'pretty_contacts_phone', 'Телефон' ),
+		         Field::make( 'text', 'pretty_contacts_email', 'Почта' ),
+		         Field::make( 'text', 'pretty_contacts_days', 'Дни работы' ),
+		         Field::make( 'text', 'pretty_contacts_hours', 'Часы работы' ),
+
+	         ) )
+	         ->add_tab( __( 'Футер' ), array(
+		         Field::make( 'textarea', 'pretty_footer_about', 'О нас' ),
+		         Field::make( 'text', 'pretty_footer_twitter', 'Ссылка на Twitter' ),
+		         Field::make( 'text', 'pretty_footer_facebook', 'Ссылка на Facebook' ),
+		         Field::make( 'text', 'pretty_footer_instagram', 'Ссылка на Instagram' ),
+
 	         ) );
 }

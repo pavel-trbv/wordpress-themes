@@ -8362,6 +8362,10 @@ textarea.form-control {
     font-size: 18px;
     padding-top: 2px;
     color: white; }
+  .block-23 ul li .text.address {
+    display: inline-block;
+    margin-bottom: 15px;
+  }
 
 .block-6 {
   margin-bottom: 40px; }

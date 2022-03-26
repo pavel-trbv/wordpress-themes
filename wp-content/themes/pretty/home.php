@@ -278,48 +278,52 @@
             <div class="col-md-4 d-flex align-self-stretch ftco-animate">
                 <div class="appointment-info text-center p-5">
                     <div class="mb-4">
-                        <h3 class="mb-3">Address</h3>
-                        <p> 203 Fake St. Mountain View, San Francisco, California, USA</p>
+                        <h3 class="mb-3">Адрес</h3>
+                        <p><?= carbon_get_theme_option( 'pretty_contacts_address' ); ?></p>
                     </div>
                     <div class="mb-4">
-                        <h3 class="mb-3">Phone</h3>
-                        <p class="day"><strong>000 123 456</strong> or <strong>000 987 654</strong></p>
+                        <h3 class="mb-3">Телефон</h3>
+                        <p class="day">
+                            <strong><?= carbon_get_theme_option( 'pretty_contacts_phone' ); ?></strong>
+                        </p>
                     </div>
                     <div>
-                        <h3 class="mb-3">Opening Hours</h3>
-                        <p class="day"><strong>Monday - Friday</strong></p>
-                        <span>08:00am - 09:00pm</span>
+                        <h3 class="mb-3">Часы работы</h3>
+                        <p class="day">
+                            <strong><?= carbon_get_theme_option( 'pretty_contacts_days' ); ?></strong>
+                        </p>
+                        <span><?= carbon_get_theme_option( 'pretty_contacts_hours' ); ?></span>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 appointment pl-md-5 ftco-animate">
-                <h3 class="mb-3">Appointments</h3>
+                <h3 class="mb-3">Записаться на посещение</h3>
                 <form action="#" class="appointment-form">
                     <div class="row form-group d-flex">
                         <div class="col-md-6">
-                            <input type="text" class="form-control" placeholder="First Name">
+                            <input type="text" class="form-control" placeholder="Имя">
                         </div>
                         <div class="col-md-6">
-                            <input type="text" class="form-control" placeholder="Last Name">
+                            <input type="text" class="form-control" placeholder="Фамилия">
                         </div>
                     </div>
                     <div class="row form-group d-flex">
                         <div class="col-md-6">
                             <div class="input-wrap">
                                 <div class="icon"><span class="ion-md-calendar"></span></div>
-                                <input type="text" id="appointment_date" class="form-control" placeholder="Date">
+                                <input type="text" id="appointment_date" class="form-control" placeholder="Дата">
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <input type="text" class="form-control" placeholder="Phone">
+                            <input type="text" class="form-control" placeholder="Телефон">
                         </div>
                     </div>
                     <div class="form-group">
                         <textarea name="" id="" cols="30" rows="3" class="form-control"
-                                  placeholder="Message"></textarea>
+                                  placeholder="Комментарий"></textarea>
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="Order" class="btn btn-white btn-outline-white py-3 px-4">
+                        <input type="submit" value="Записаться" class="btn btn-white btn-outline-white py-3 px-4">
                     </div>
                 </form>
             </div>
