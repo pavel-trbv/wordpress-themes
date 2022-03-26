@@ -8773,3 +8773,9 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+
+
+.image-alignleft {
+  float: left;
+  margin: 0 2em 2em 0
+}

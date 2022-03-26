@@ -36,7 +36,7 @@
                     </h1>
 
                     <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
-                        <a href="https://vimeo.com/45830194" class="btn btn-white btn-outline-white px-4 py-3">
+                        <a href="/#services" class="btn btn-white btn-outline-white px-4 py-3">
 	                        <?= carbon_get_theme_option( 'pretty_preview_button' ); ?>
                         </a>
                     </p>
@@ -57,11 +57,11 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a href="index.html" class="nav-link"><?= carbon_get_theme_option( 'pretty_menu_home' ); ?></a>
+                <li class="nav-item <?= is_home() ? 'active' : ''; ?>">
+                    <a href="/" class="nav-link"><?= carbon_get_theme_option( 'pretty_menu_home' ); ?></a>
                 </li>
-                <li class="nav-item">
-                    <a href="about.html" class="nav-link"><?= carbon_get_theme_option( 'pretty_menu_about' ); ?></a>
+                <li class="nav-item <?= is_page('about') ? 'active' : ''; ?>">
+                    <a href="/about" class="nav-link"><?= carbon_get_theme_option( 'pretty_menu_about' ); ?></a>
                 </li>
                 <li class="nav-item">
                     <a href="/#services" class="nav-link"><?= carbon_get_theme_option( 'pretty_menu_services' ); ?></a>
@@ -69,9 +69,6 @@
                 <li class="nav-item">
                     <a href="/#work" class="nav-link"><?= carbon_get_theme_option( 'pretty_menu_work' ); ?></a>
                 </li>
-<!--                <li class="nav-item">-->
-<!--                    <a href="blog.html" class="nav-link">--><?//= carbon_get_theme_option( 'pretty_menu_blog' ); ?><!--</a>-->
-<!--                </li>-->
                 <li class="nav-item">
                     <a href="/#contacts" class="nav-link"><?= carbon_get_theme_option( 'pretty_menu_contacts' ); ?></a>
                 </li>
